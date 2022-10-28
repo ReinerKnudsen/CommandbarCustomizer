@@ -1,0 +1,41 @@
+"'Checkbox Simple' As CanvasComponent":
+    Default: =false
+    DisplayMode: =DisplayMode.Edit
+    Fill: =RGBA(0, 0, 0, 0)
+    FontSize: =16
+    Height: =Self.FontSize*5
+    OnReset: =Reset(chk_Checkbox)
+    Required: =false
+    Title: ="Option"
+    Update: =chk_Checkbox.Value
+    Width: =640
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    chk_Checkbox As checkbox:
+        CheckboxSize: =Self.Size*3.33
+        Default: ='Checkbox Simple'.Default
+        DisplayMode: ='Checkbox Simple'.DisplayMode
+        FocusedBorderThickness: =0
+        Height: =Parent.Height
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        PressedBorderColor: =Self.BorderColor
+        PressedColor: =Self.Color
+        PressedFill: =Self.Fill
+        Size: ='Checkbox Simple'.FontSize
+        Text: ='Checkbox Simple'.Title
+        Width: =591
+        X: =30
+        ZIndex: =4
+
+    lblStarRequired As label:
+        Height: =chk_Checkbox.Height
+        Size: =21
+        Text: ="*"
+        Visible: ='Checkbox Simple'.Required
+        Width: =Self.Size*2
+        ZIndex: =5
+

@@ -1,0 +1,533 @@
+Screen2 As screen:
+    OnVisible: |+
+        =//NewForm(frmCommandbarConfiguration);
+        UpdateContext({ 
+            bolShowDialog: false
+        });
+        ClearCollect(
+            col_SpaltenTabelle,
+            { ColDisplayName: "DisplayName",
+              ColName: "ItemDisplayName",
+              ColWidth: 120},
+            { ColDisplayName: "Key",
+              ColName: "ItemKey",
+              ColWidth: 120},
+            { ColDisplayName: "Parent",
+              ColName: "ItemParentKey",
+            ColWidth: 120}
+        );
+        UpdateContext({
+            num_EingabefeldHoehe: 40,
+            num_EingabefeldFont: 14,
+            clr_ItemIconColor: White
+        });
+        ClearCollect(
+            col_Tabs,
+            {
+                Name: "Basic",
+                Target: "basic"
+            },
+            {
+                Name: "Icon",
+                Target: "icon"
+            },
+            {
+                Name: "Options",
+                Target: "options"
+            }
+        )
+        
+
+    "Elevation1 As 'Fluent Elevation (1.0.9)'":
+        Depth: ='''PowerCAT.Elevation.Depth'''.Depth16
+        DisplayMode: =DisplayMode.Edit
+        Height: =681
+        HoverDepth: ='''PowerCAT.Elevation.HoverDepth'''.Depth64
+        Width: =536
+        X: =56
+        Y: =68
+        ZIndex: =1
+
+    Header_2 As Header:
+        LeftButtonImage: ='panda-6266995_640'
+        OnRightButtonSelect: =Navigate(Screen1, ScreenTransition.Fade)
+        Text: ="COMMAND BAR CONFIGURATION"
+        ZIndex: =2
+
+    Button2 As button:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =RGBA(0, 18, 107, 1)
+        DisplayMode: =
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =60
+        HoverBorderColor: =Self.HoverColor
+        HoverFill: =RGBA(0, 13, 75, 1)
+        OnSelect: |+
+            =Collect(
+                colMenues,
+                {
+                    ItemDisplayName: inp_ItemDisplayName.Update,
+                    ItemKey: inp_ItemKey.Update,
+                    ItemParentKey: If( !IsBlank(inp_ItemParentKey.Update), inp_ItemParentKey.Update, ""),
+                    ItemIconName: If( !IsBlank( inp_ItemIconName.Update), inp_ItemIconName.Update, ""),
+                    ItemItemColor: If( !IsBlank( inp_ItemIconColor.Update), inp_ItemIconColor.Update, ""),
+                    ItemIconOnly: chk_ItemIconOnly.Update,
+                    ItemDivider: chk_ItemDivider.Update,
+                    ItemTopDivider: chk_ItemTopDivider.Update,
+                    ItemHeader: chk_ItemHeader.Update,
+                    ItemFarItem: chk_ItemFarItem.Update,
+                    ItemOverFlow: chk_ItemOverflow.Update,
+                    ItemSplit: chk_ItemSplit.Update,
+                    ItemChecked: chk_ItemChecked.Update,
+                    ItemVisible: chk_ItemVisible.Update,
+                    ItemEnabled: chk_ItemEnabled.Update
+            
+                }
+            );
+            /* Reset all input and choice fields */
+            Concurrent(
+                Reset( inp_ItemDisplayName),
+                Reset( inp_ItemKey),
+                Reset( inp_ItemParentKey),
+                Reset( inp_ItemIconName),
+                Reset( inp_ItemIconColor),
+                Reset( chk_ItemIconOnly),
+                Reset( chk_ItemEnabled),
+                Reset( chk_ItemVisible),
+                Reset( chk_ItemChecked),
+                Reset( chk_ItemSplit),
+                Reset( chk_ItemOverflow),
+                Reset( chk_ItemFarItem),
+                Reset( chk_ItemHeader),
+                Reset( chk_ItemTopDivider),
+                Reset( chk_ItemDivider)
+            )
+            
+            
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =21
+        Text: ="Speichern"
+        Width: =150
+        X: =431
+        Y: =681
+        ZIndex: =5
+
+    Button2_1 As button:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =RGBA(0, 18, 107, 1)
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =60
+        HoverBorderColor: =Self.HoverColor
+        HoverFill: =RGBA(0, 13, 75, 1)
+        OnSelect: =
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =21
+        Text: ="Löschen"
+        Width: =150
+        X: =72
+        Y: =681
+        ZIndex: =9
+
+    Group2 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =9
+
+        "Elevation2 As 'Fluent Elevation (1.0.9)'":
+            Depth: ='''PowerCAT.Elevation.Depth'''.Depth16
+            DisplayMode: =DisplayMode.Edit
+            Height: =149
+            HoverDepth: ='''PowerCAT.Elevation.HoverDepth'''.Depth64
+            Width: =539
+            X: =56
+            Y: =764
+            ZIndex: =6
+
+        Label2 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Semibold
+            Height: =43
+            Size: =21
+            Text: ="Dein Menu"
+            Width: =536
+            X: =56
+            Y: =770
+            ZIndex: =7
+
+        "CommandBar2 As 'Fluent Command Bar (1.0.9)'.pcfdataset":
+            DisplayMode: =DisplayMode.Edit
+            Height: =41
+            Items: =colMenues
+            OnChange: |
+                =UpdateContext({ isChange: true});
+            OnSelect: |-
+                =UpdateContext({ isChange: true});
+            Width: =539
+            X: =56
+            Y: =813
+            ZIndex: =8
+
+        "Icon1 As 'Fluent Icon (1.0.9)'":
+            DisplayMode: =DisplayMode.Edit
+            FontSize: =20
+            Height: =56
+            IconName: ="Copy"
+            IconSize: =20
+            OnChange: |-
+                =/*UpdateContext({ 
+                    txtJsonString: JSON( colMenues, JSONFormat.IndentFour)
+                });*/
+                
+                UpdateContext({
+                    txtString:
+                    "Table(" & Char(10) &
+                    Concat( 
+                        colMenues, 
+                        "{" & Char(10) &
+                        "ItemDisplayName: " & Char(34) & ThisRecord.ItemDisplayName & Char(34) & "," & Char(10) &
+                        "ItemKey: " & Char(34) & ThisRecord.ItemKey & Char(34) & "," & Char(10) &
+                        "ItemIconName: " & Char(34) & ThisRecord.ItemIconName & Char(34) &
+                        If(
+                            !IsBlank( ThisRecord.ItemParentKey),
+                            "," & Char(10) & "ItemParentKey: " & Char(34) & ThisRecord.ItemParentKey & Char(34) 
+                            ) 
+                        & Char(10) & "}," & Char(10)
+                        )
+                });
+                UpdateContext({
+                    txtString:
+                    Left( txtString, Len( txtString)-2) & Char(10) & ")"
+                })
+            TextAlignment: ='''PowerCAT.Icon.TextAlignment'''.Center
+            Tooltip: ="Tabellen-Code kopieren"
+            Width: =58
+            X: =534
+            Y: =764
+            ZIndex: =10
+
+    "Elevation3 As 'Fluent Elevation (1.0.9)'":
+        Depth: ='''PowerCAT.Elevation.Depth'''.Depth16
+        DisplayMode: =DisplayMode.Edit
+        Height: =172
+        HoverDepth: ='''PowerCAT.Elevation.HoverDepth'''.Depth64
+        Width: =536
+        X: =56
+        Y: =939
+        ZIndex: =11
+
+    "'Dialog Group' As group":
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =11
+
+        Dialog_1 As Dialog:
+            Buttons: |-
+                =Table({Label: "Ok", ButtonType:'''Microsoft.CoreControls.Button.ButtonType'''.Primary})
+            DialogWidth: =600
+            Fill: =Dialog_1.OverlayColor
+            Height: =1136
+            OnButtonSelect: |-
+                =UpdateContext({
+                    bolShowDialog: false
+                })
+            OnCloseSelect: |-
+                =UpdateContext({
+                    bolShowDialog: false
+                })
+            SubTitle: =
+            Title: ="Dein QuellCode"
+            Visible: =bolShowDialog
+            Width: =640
+            ZIndex: =13
+
+        Label4 As label:
+            DisplayMode: =DisplayMode.View
+            Height: =263
+            Overflow: =Overflow.Scroll
+            Size: =10
+            Text: =
+            Visible: =bolShowDialog
+            Width: =553
+            X: =42
+            Y: =453
+            ZIndex: =14
+
+    "FluentDetailsList1 As 'Fluent Details List (1.0.9)'.pcfdataset":
+        columns_Items: =col_SpaltenTabelle
+        DisplayMode: =DisplayMode.Edit
+        Height: =183
+        Items: =colMenues
+        OnSelect: =Set( rec_SelectedFromList, Self.SelectedItems)
+        SelectionAlwaysVisible: =true
+        SelectRowsOnFocus: =true
+        Width: =536
+        X: =56
+        Y: =928
+        ZIndex: =12
+
+        ItemDisplayName1 As pcfDataField.textualColumn:
+            FieldDisplayName: ="ItemDisplayName"
+            FieldName: ="ItemDisplayName"
+            FieldType: ="N"
+            FieldVariantName: ="textualColumn"
+            Order: =1
+            ZIndex: =5
+
+        ItemIconName1 As pcfDataField.textualColumn:
+            FieldDisplayName: ="ItemIconName"
+            FieldName: ="ItemIconName"
+            FieldType: ="N"
+            FieldVariantName: ="textualColumn"
+            Order: =2
+            ZIndex: =6
+
+        ItemKey1 As pcfDataField.textualColumn:
+            FieldDisplayName: ="ItemKey"
+            FieldName: ="ItemKey"
+            FieldType: ="N"
+            FieldVariantName: ="textualColumn"
+            Order: =3
+            ZIndex: =7
+
+        ItemParentKey1 As pcfDataField.textualColumn:
+            FieldDisplayName: ="ItemParentKey"
+            FieldName: ="ItemParentKey"
+            FieldType: ="N"
+            FieldVariantName: ="textualColumn"
+            Order: =4
+            ZIndex: =8
+
+    "'Gallery Tab' As gallery.galleryHorizontal":
+        Height: =57
+        Items: =col_Tabs
+        TemplateSize: =(Self.Width/CountRows(col_Tabs))-10
+        Width: =536
+        X: =56
+        Y: =68
+        ZIndex: =15
+
+        Button3 As button:
+            Fill: =If(ThisItem.IsSelected, RGBA(0, 18, 107, 1), RGBA(0, 134, 208, 1))
+            Height: =42
+            PressedBorderColor: =RGBA(0, 18, 107, 1)
+            PressedColor: =Self.Color
+            PressedFill: =RGBA(0, 18, 107, 1)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =30
+            RadiusTopRight: =30
+            Size: =18
+            Text: =ThisItem.Name
+            Width: =Parent.TemplateWidth
+            Y: =5
+            ZIndex: =1
+
+    "'Container Basic' As groupContainer.manualLayoutContainer":
+        Height: =544
+        Visible: ='Gallery Tab'.Selected.Target ="basic"
+        Width: =539
+        X: =56
+        Y: =125
+        ZIndex: =16
+
+        inp_ItemDisplayName As InputField:
+            Height: =100
+            IsError: =true
+            PlaceholderText: ="ItemDisplayName"
+            Required: =true
+            Title: ="ItemDisplayName"
+            Width: =539
+
+        inp_ItemKey As InputField:
+            DisplayMode: =If( !IsBlank(inp_ItemDisplayName.Update), DisplayMode.Edit, DisplayMode.Disabled)
+            Height: =100
+            IsError: =true
+            OnChange: |-
+                =If( 
+                	!IsBlank(
+                		Filter(
+                			colMenues,
+                			ItemKey = Self.Update
+                        )
+                	),
+                	Reset( Self);
+                	Notify( "Dieser Key ist bereits vorhanden", NotificationType.Error, 3000)
+                )
+            PlaceholderText: ="ItemKey"
+            Required: =true
+            Title: ="ItemKey"
+            Width: =539
+            Y: =113
+            ZIndex: =2
+
+        inp_ItemParentKey As InputField:
+            DisplayMode: =If( !IsBlank(inp_ItemDisplayName.Update), DisplayMode.Edit, DisplayMode.Disabled)
+            Height: =102
+            IsError: =true
+            PlaceholderText: ="ItemParentKey"
+            Title: ="ItemParentKey"
+            Width: =539
+            Y: =232
+            ZIndex: =3
+
+    "'Container Icon' As groupContainer.manualLayoutContainer":
+        Height: =544
+        Visible: ='Gallery Tab'.Selected.Target ="icon"
+        Width: =539
+        X: =56
+        Y: =125
+        ZIndex: =17
+
+        inp_ItemIconName As InputField:
+            Height: =99
+            IsError: =true
+            PlaceholderText: ="Icon Name (Fluent UI Icons)"
+            Title: ="ItemIconName"
+            Visible: =true
+            Width: =539
+            Y: =25
+
+        "chk_ItemIconOnly As 'Checkbox Simple'":
+            DisplayMode: =inp_ItemIconColor.DisplayMode
+            Title: ="ItemIconOnly"
+            Width: =539
+            Y: =251
+            ZIndex: =3
+
+        rec_ColorIndicator As rectangle:
+            Fill: =clr_ItemIconColor
+            Height: =30
+            Width: =30
+            X: =497
+            Y: =139
+            ZIndex: =4
+
+        "inp_ItemIconColor As 'InputField with prefix'":
+            DisplayMode: =If( !IsBlank( inp_ItemIconName.Update), DisplayMode.Edit, DisplayMode.Disabled)
+            Height: =101
+            OnChange: |-
+                =UpdateContext({ clr_ItemIconColor: ColorValue(inp_ItemIconColor.Update)})
+            PlaceholderText: ="Hexadecimal Value"
+            Title: ="ItemIconColor"
+            Width: =539
+            Y: =139
+            ZIndex: =5
+
+    "'Container Options' As groupContainer.manualLayoutContainer":
+        Height: =544
+        Visible: ='Gallery Tab'.Selected.Target ="options"
+        Width: =539
+        X: =56
+        Y: =125
+        ZIndex: =18
+
+        "chk_ItemEnabled As 'Checkbox Simple'":
+            Default: =true
+            Height: =60
+            Title: ="ItemEnabled"
+            Width: =539
+
+        "chk_ItemVisible As 'Checkbox Simple'":
+            Default: =true
+            Height: =60
+            Title: ="ItemVisible"
+            Width: =539
+            Y: =60
+            ZIndex: =2
+
+        "chk_ItemChecked As 'Checkbox Simple'":
+            Height: =60
+            Title: ="ItemChecked"
+            Width: =539
+            Y: =120
+            ZIndex: =3
+
+        "chk_ItemSplit As 'Checkbox Simple'":
+            Height: =60  
+            Title: ="ItemSplit"
+            Width: =539
+            Y: =180
+            ZIndex: =4
+
+        "chk_ItemOverflow As 'Checkbox Simple'":
+            Height: =60
+            Title: ="ItemOverflow"
+            Width: =539
+            Y: =240
+            ZIndex: =5
+
+        "chk_ItemFarItem As 'Checkbox Simple'":
+            Height: =60
+            Title: ="ItemFarItem"
+            Width: =539
+            Y: =300
+            ZIndex: =6
+
+        "chk_ItemHeader As 'Checkbox Simple'":
+            Height: =60
+            Title: ="ItemHeader"
+            Width: =539
+            Y: =360
+            ZIndex: =7
+
+        "chk_ItemTopDivider As 'Checkbox Simple'":
+            Height: =60
+            Title: ="ItemTopDivider"
+            Width: =539
+            Y: =420
+            ZIndex: =8
+
+        "chk_ItemDivider As 'Checkbox Simple'":
+            Height: =60
+            Title: ="ItemDivider"
+            Width: =539
+            Y: =480
+            ZIndex: =9
+
+    Button2_2 As button:
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Color: =RGBA(0, 18, 107, 1)
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =60
+        HoverBorderColor: =Self.HoverColor
+        HoverFill: =RGBA(0, 13, 75, 1)
+        OnSelect: |-
+            =/* Reset all input and choice fields */
+            Concurrent(
+                Reset( inp_ItemDisplayName),
+                Reset( inp_ItemKey),
+                Reset( inp_ItemParentKey),
+                Reset( inp_ItemIconName),
+                Reset( inp_ItemIconColor),
+                Reset( chk_ItemIconOnly),
+                Reset( chk_ItemEnabled),
+                Reset( chk_ItemVisible),
+                Reset( chk_ItemChecked),
+                Reset( chk_ItemSplit),
+                Reset( chk_ItemOverflow),
+                Reset( chk_ItemFarItem),
+                Reset( chk_ItemHeader),
+                Reset( chk_ItemTopDivider),
+                Reset( chk_ItemDivider)
+            )
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =21
+        Text: ="Neu"
+        Width: =150
+        X: =250
+        Y: =681
+        ZIndex: =19
+
