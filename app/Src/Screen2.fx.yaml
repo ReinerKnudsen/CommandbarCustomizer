@@ -361,6 +361,14 @@ Screen2 As screen:
             Width: =539
 
         inp_ItemKey As InputField:
+            Default: |
+                =If(
+                    !IsEmpty(
+                        list_Details.SelectedItems
+                    ),
+                    First(list_Details.SelectedItems).ItemKey,
+                    ""
+                )
             DisplayMode: =If( !IsBlank(inp_ItemDisplayName.Update), DisplayMode.Edit, DisplayMode.Disabled)
             Height: =100
             IsError: =true
@@ -388,6 +396,14 @@ Screen2 As screen:
 
         inp_ItemParentKey As InputField:
             DisplayMode: =If( !IsBlank(inp_ItemDisplayName.Update), DisplayMode.Edit, DisplayMode.Disabled)
+            Default: |
+                =If(
+                    !IsEmpty(
+                        list_Details.SelectedItems
+                    ),
+                    First(list_Details.SelectedItems).ItemParentKey,
+                    ""
+                )
             Height: =102
             IsError: =true
             PlaceholderText: ="ItemParentKey"
@@ -405,7 +421,15 @@ Screen2 As screen:
         ZIndex: =17
 
         inp_ItemIconName As InputField:
-            Height: =99
+            Default: |
+                =If(
+                    !IsEmpty(
+                        list_Details.SelectedItems
+                    ),
+                    First(list_Details.SelectedItems).ItemIconName,
+                    ""
+                )
+            Height: =99            
             IsError: =true
             PlaceholderText: ="Icon Name (Fluent UI Icons)"
             Title: ="ItemIconName"
@@ -414,6 +438,14 @@ Screen2 As screen:
             Y: =25
 
         "chk_ItemIconOnly As 'Checkbox Simple'":
+            Default: |
+                =If(
+                    !IsEmpty(
+                        list_Details.SelectedItems
+                    ),
+                    First(list_Details.SelectedItems).ItemIconOnly,
+                    false
+                )
             DisplayMode: =inp_ItemIconColor.DisplayMode
             Title: ="ItemIconOnly"
             Width: =539
