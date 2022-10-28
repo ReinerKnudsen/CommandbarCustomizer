@@ -852,36 +852,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.rec_SelectedFromList"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.rec_SelectedFromList",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "rec_SelectedFromList",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 5
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "Dialog.isButtonSelected"
                 }
               ],

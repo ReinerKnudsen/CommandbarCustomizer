@@ -63,26 +63,30 @@ Screen2 As screen:
         HoverBorderColor: =Self.HoverColor
         HoverFill: =RGBA(0, 13, 75, 1)
         OnSelect: |+
-            =Collect(
-                colMenues,
-                {
-                    ItemDisplayName: inp_ItemDisplayName.Update,
-                    ItemKey: inp_ItemKey.Update,
-                    ItemParentKey: If( !IsBlank(inp_ItemParentKey.Update), inp_ItemParentKey.Update, ""),
-                    ItemIconName: If( !IsBlank( inp_ItemIconName.Update), inp_ItemIconName.Update, ""),
-                    ItemItemColor: If( !IsBlank( inp_ItemIconColor.Update), inp_ItemIconColor.Update, ""),
-                    ItemIconOnly: chk_ItemIconOnly.Update,
-                    ItemDivider: chk_ItemDivider.Update,
-                    ItemTopDivider: chk_ItemTopDivider.Update,
-                    ItemHeader: chk_ItemHeader.Update,
-                    ItemFarItem: chk_ItemFarItem.Update,
-                    ItemOverFlow: chk_ItemOverflow.Update,
-                    ItemSplit: chk_ItemSplit.Update,
-                    ItemChecked: chk_ItemChecked.Update,
-                    ItemVisible: chk_ItemVisible.Update,
-                    ItemEnabled: chk_ItemEnabled.Update
+            =/* Check whether required fields are filled */
+            If(
+                inp_ItemDisplayName.IsValid && inp_ItemKey.IsValid,
+                Collect(
+                    colMenues,
+                    {
+                        ItemDisplayName: inp_ItemDisplayName.Update,
+                        ItemKey: inp_ItemKey.Update,
+                        ItemParentKey: If( !IsBlank(inp_ItemParentKey.Update), inp_ItemParentKey.Update, ""),
+                        ItemIconName: If( !IsBlank( inp_ItemIconName.Update), inp_ItemIconName.Update, ""),
+                        ItemItemColor: If( !IsBlank( inp_ItemIconColor.Update), inp_ItemIconColor.Update, ""),
+                        ItemIconOnly: chk_ItemIconOnly.Update,
+                        ItemDivider: chk_ItemDivider.Update,
+                        ItemTopDivider: chk_ItemTopDivider.Update,
+                        ItemHeader: chk_ItemHeader.Update,
+                        ItemFarItem: chk_ItemFarItem.Update,
+                        ItemOverFlow: chk_ItemOverflow.Update,
+                        ItemSplit: chk_ItemSplit.Update,
+                        ItemChecked: chk_ItemChecked.Update,
+                        ItemVisible: chk_ItemVisible.Update,
+                        ItemEnabled: chk_ItemEnabled.Update
             
-                }
+                    }
+                )
             );
             /* Reset all input and choice fields */
             Concurrent(
@@ -262,12 +266,12 @@ Screen2 As screen:
             Y: =453
             ZIndex: =14
 
-    "FluentDetailsList1 As 'Fluent Details List (1.0.9)'.pcfdataset":
+    "list_Details As 'Fluent Details List (1.0.9)'.pcfdataset":
         columns_Items: =col_SpaltenTabelle
         DisplayMode: =DisplayMode.Edit
         Height: =183
         Items: =colMenues
-        OnSelect: =Set( rec_SelectedFromList, Self.SelectedItems)
+        OnSelect: =false
         SelectionAlwaysVisible: =true
         SelectRowsOnFocus: =true
         Width: =536
@@ -341,6 +345,14 @@ Screen2 As screen:
         ZIndex: =16
 
         inp_ItemDisplayName As InputField:
+            Default: |
+                =If(
+                    !IsEmpty(
+                        list_Details.SelectedItems
+                    ),
+                    First(list_Details.SelectedItems).ItemDisplayName,
+                    ""
+                )
             Height: =100
             IsError: =true
             PlaceholderText: ="ItemDisplayName"
@@ -354,12 +366,16 @@ Screen2 As screen:
             IsError: =true
             OnChange: |-
                 =If( 
-                	!IsBlank(
-                		Filter(
-                			colMenues,
-                			ItemKey = Self.Update
+                	And(
+                        CountRows(
+                            colMenues) > 0,
+                        !IsBlank(
+                            Filter(
+                                colMenues,
+                                ItemKey = Self.Update
+                            )
                         )
-                	),
+                    ),
                 	Reset( Self);
                 	Notify( "Dieser Key ist bereits vorhanden", NotificationType.Error, 3000)
                 )
