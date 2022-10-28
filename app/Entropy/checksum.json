@@ -21,7 +21,7 @@
     "Controls\\1.json": "C8_f63Tu7sXRvCecyilyY+Z67CBFw+vLKY04W2aNe2pPf4=",
     "Controls\\91.json": "C8_aUR8PAwj6SCdd0yK2amlFb/iDNAfvtkP1WgPyM/8+xw=",
     "Controls\\94.json": "C8_qwDcvoMetNi069h1wgdqbB2yYziv+rmP3l8kWZoJQU8=",
-    "Header.json": "C8_UQXp+oLDtwH6VeN4hjhLPXp2Rkp+R6oA6vsfkSkm6QQ=",
+    "Header.json": "C8_0q/DdI+U7731hcCg1POlrfGYVC7L6DFRRLWlVFMib/A=",
     "Properties.json": "C8_91Bd4ba0NV87cgW7T/WGHAdvBs0HXIoyUGOvM3C7gIc=",
     "References\\DataSources.json": "C8_6VVbeIWbFTg+/RdEMSgvRthP8UC/QqG00uBws9A7lRU=",
     "References\\Resources.json": "C8_2jLrAXNChsJKAtcTKsY7lzqGLqqGOx03hQoJrwacGDg=",
@@ -44,7 +44,7 @@
     "Resources\\Controls\\strings\\PowerCAT.Icon.Icon.1033.resx": "C8_npmQqYzM3I8cjrL4b0AEe/vJWqhPOqrNF136yrGtFAA=",
     "Resources\\PublishInfo.json": "C8_eWwmpjJ1/n6Llh+4tcZKbOHVbuF3xtaEXOnhibPGOuo="
   },
-  "ClientStampedChecksum": "C8_x7sS45qAbR9hmESvNzPJYWYklysUgDzRH+mRVORUP94=",
+  "ClientStampedChecksum": "C8_7TEseMgmSUU9aQpQGO/6J5BrjCTgOq0abUsh2cNaqww=",
   "ServerPerFileChecksums": {
     "AppCheckerResult.sarif": "C8_zWNBGJ3HdfUp9jkfkeg/Zaa7IWSkDSYQJWhvGkrJDE4=",
     "Assets\\Images\\49d76f0a-d51c-4a39-aec3-9d9157c77b94.png": "C8_YO1oL8Ur9zkjd7tSXpeglXIsn9Vb7wDFb2R3AMFNx28=",
@@ -63,7 +63,7 @@
     "Controls\\1.json": "C8_f63Tu7sXRvCecyilyY+Z67CBFw+vLKY04W2aNe2pPf4=",
     "Controls\\91.json": "C8_aUR8PAwj6SCdd0yK2amlFb/iDNAfvtkP1WgPyM/8+xw=",
     "Controls\\94.json": "C8_qwDcvoMetNi069h1wgdqbB2yYziv+rmP3l8kWZoJQU8=",
-    "Header.json": "C8_UQXp+oLDtwH6VeN4hjhLPXp2Rkp+R6oA6vsfkSkm6QQ=",
+    "Header.json": "C8_0q/DdI+U7731hcCg1POlrfGYVC7L6DFRRLWlVFMib/A=",
     "Properties.json": "C8_91Bd4ba0NV87cgW7T/WGHAdvBs0HXIoyUGOvM3C7gIc=",
     "References\\DataSources.json": "C8_6VVbeIWbFTg+/RdEMSgvRthP8UC/QqG00uBws9A7lRU=",
     "References\\Resources.json": "C8_2jLrAXNChsJKAtcTKsY7lzqGLqqGOx03hQoJrwacGDg=",
@@ -86,5 +86,5 @@
     "Resources\\Controls\\strings\\PowerCAT.Icon.Icon.1033.resx": "C8_npmQqYzM3I8cjrL4b0AEe/vJWqhPOqrNF136yrGtFAA=",
     "Resources\\PublishInfo.json": "C8_eWwmpjJ1/n6Llh+4tcZKbOHVbuF3xtaEXOnhibPGOuo="
   },
-  "ServerStampedChecksum": "C8_x7sS45qAbR9hmESvNzPJYWYklysUgDzRH+mRVORUP94="
+  "ServerStampedChecksum": "C8_7TEseMgmSUU9aQpQGO/6J5BrjCTgOq0abUsh2cNaqww="
 }
