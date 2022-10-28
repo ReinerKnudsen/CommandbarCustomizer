@@ -1,0 +1,53 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+    "CdpRevision": {
+      "BaseUrl": "/",
+      "LastChangedTimeString": "2022-10-25T16:15:37.5800000Z",
+      "RevisionNumber": 1
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "{Attachments}": "Anlagen",
+      "{Attachments}@odata.type": "{Attachments} ({Attachments}@odata.type)",
+      "{FilenameWithExtension}": "Dateiname mit Erweiterung",
+      "{FullPath}": "Vollständiger Pfad",
+      "{HasAttachments}": "Hat Anlagen",
+      "{Identifier}": "Bezeichner",
+      "{IsFolder}": "IstOrdner",
+      "{Link}": "Link zu Element",
+      "{ModerationComment}": "Die der Inhaltsgenehmigung dieses Listenelements zugeordnete Kommentare.",
+      "{ModerationStatus}": "Inhaltsgenehmigungsstatus",
+      "{Name}": "Name",
+      "{Path}": "Ordnerpfad",
+      "{Thumbnail}": "Miniaturansicht",
+      "{TriggerWindowEndToken}": "Token für Ende des Zeitfensters auslösen",
+      "{TriggerWindowStartToken}": "Token für Start des Zeitfensters auslösen",
+      "{VersionNumber}": "Versionsnummer",
+      "Author": "Created By",
+      "Author#Claims": "Created By Claims",
+      "ComplianceAssetId": "Compliance Asset Id",
+      "Created": "Created",
+      "Editor": "Modified By",
+      "Editor#Claims": "Modified By Claims",
+      "IconItemColor": "IconItemColor",
+      "ID": "ID",
+      "ItemChecked": "ItemChecked",
+      "ItemDisplayName": "ItemDisplayName",
+      "ItemEnabled": "ItemEnabled",
+      "ItemIconName": "ItemIconName",
+      "ItemIconOnly": "ItemIconOnly",
+      "ItemKey": "ItemKey",
+      "ItemParentKey": "ItemParentKey",
+      "ItemSplit": "ItemSplit",
+      "ItemVisible": "ItemVisible",
+      "Modified": "Modified",
+      "Title": "Title"
+    },
+    "DatasetName": "https://worldofknudsen.sharepoint.com/sites/PowerofKnudsen",
+    "EncodeDataset": true,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "Dummy4Menus",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]

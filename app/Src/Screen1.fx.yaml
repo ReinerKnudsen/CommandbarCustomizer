@@ -1,0 +1,40 @@
+Screen1 As screen:
+
+    Header_1 As Header:
+        LeftButtonImage: ='panda-6266995_640'
+        OnRightButtonSelect: =Navigate(Screen2, ScreenTransition.Fade)
+        Text: ="FLUENT DESIGN APP"
+
+    "CommandBar1 As 'Fluent Command Bar (1.0.9)'.pcfdataset":
+        DisplayMode: =DisplayMode.Edit
+        Height: =67
+        Items: |-
+            =Table(
+            {
+            ItemDisplayName: "Neu",
+            ItemKey: "new",
+            ItemIconName: "CirclePlus",
+            ItemIconColor: "#8ab21d"
+            },
+            {
+            ItemDisplayName: "Datei",
+            ItemKey: "file",
+            ItemIconName: "TextDocument",
+            ItemParentKey: "new"
+            },
+            {
+            ItemDisplayName: "Bearbeiten",
+            ItemKey: "edit",
+            ItemIconName: "StockDown"
+            },
+            {
+            ItemDisplayName: "Hilfe",
+            ItemKey: "help",
+            ItemIconName: "Lightbulb"
+            }
+            )
+        Width: =640
+        X: =0
+        Y: =49
+        ZIndex: =2
+

@@ -1,0 +1,30 @@
+{
+  "b395171e-7149-4d42-bbd9-f81711116c07": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1601/1.0.1601.3047/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://worldofknudsen.sharepoint.com/sites/PowerofKnudsen": {
+        "dataSources": {
+          "Dummy4Menus": {
+            "tableName": "7136a0b9-973c-4416-bf01-c49281dbcb83"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Dummy4Menus"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "b395171e-7149-4d42-bbd9-f81711116c07"
+  }
+}

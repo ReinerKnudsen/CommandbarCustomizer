@@ -1,0 +1,48 @@
+{
+  "ComponentAllowCustomization": true,
+  "ComponentChangedSinceFileImport": false,
+  "ComponentManifest": {
+    "AllowAccessToGlobals": false,
+    "AllowCustomization": true,
+    "Description": "",
+    "Name": "ControlInfo",
+    "TemplateGuid": "b2d22324fafc4ad9b81c4e7dce1188c7"
+  },
+  "ComponentType": "CanvasComponent",
+  "CustomGroupControlTemplateName": "",
+  "CustomProperties": [
+    {
+      "Category": 0,
+      "DisplayName": "Description",
+      "Hidden": false,
+      "Name": "Description",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "Description",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "DesiredHeight",
+      "Hidden": true,
+      "Name": "DesiredHeight",
+      "PropertyDataTypeKey": "Number",
+      "Tooltip": "DesiredHeight",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}}"
+    }
+  ],
+  "FirstParty": true,
+  "Id": "http://microsoft.com/appmagic/Component",
+  "IsComponentLocked": true,
+  "IsComponentTemplate": true,
+  "IsCustomGroupControlTemplate": false,
+  "IsPcfControl": false,
+  "IsPremiumPcfControl": false,
+  "IsWidgetTemplate": false,
+  "LastModifiedTimestamp": "638025746509339509",
+  "Name": "b2d22324fafc4ad9b81c4e7dce1188c7",
+  "OverridableProperties": {},
+  "SourceLibraryId": "db5e591c-6bc9-4322-b48e-804ad73dbdc6",
+  "SourceLibraryLogicalName": "cr7a3_compdescription_1c3b2",
+  "TemplateOriginalName": "e3aff6ca45694181b12142d9bb47a897",
+  "Version": "637691553994655155"
+}
