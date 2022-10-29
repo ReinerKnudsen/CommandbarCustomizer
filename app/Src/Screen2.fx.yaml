@@ -395,7 +395,6 @@ Screen2 As screen:
             ZIndex: =2
 
         inp_ItemParentKey As InputField:
-            DisplayMode: =If( !IsBlank(inp_ItemDisplayName.Update), DisplayMode.Edit, DisplayMode.Disabled)
             Default: |
                 =If(
                     !IsEmpty(
@@ -404,6 +403,7 @@ Screen2 As screen:
                     First(list_Details.SelectedItems).ItemParentKey,
                     ""
                 )
+            DisplayMode: =If( !IsBlank(inp_ItemDisplayName.Update), DisplayMode.Edit, DisplayMode.Disabled)
             Height: =102
             IsError: =true
             PlaceholderText: ="ItemParentKey"
