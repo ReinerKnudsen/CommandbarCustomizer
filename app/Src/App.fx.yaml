@@ -31,5 +31,7 @@ App As appinfo:
                 ItemVisible: true,
                 ItemEnabled: true
             }
-        )
+        );
+        Set( clr_Disabled, ColorValue( "#e3e7e5"));
+        Set( clr_Enabled, ColorValue( "#243068"));
 

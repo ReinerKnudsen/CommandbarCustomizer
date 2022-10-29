@@ -118,7 +118,7 @@
         "Name": "lbl_RequiredStar",
         "Parent": "InputField with prefix",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 134,
+        "PublishOrderIndex": 158,
         "Rules": [
           {
             "Category": "Data",
@@ -491,7 +491,7 @@
         "Name": "lbl_Titel",
         "Parent": "InputField with prefix",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 135,
+        "PublishOrderIndex": 159,
         "Rules": [
           {
             "Category": "Data",
@@ -949,7 +949,7 @@
         "Name": "txt_Prefix",
         "Parent": "InputField with prefix",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 136,
+        "PublishOrderIndex": 160,
         "Rules": [
           {
             "Category": "Data",
@@ -1398,7 +1398,7 @@
         "Name": "txt_Text",
         "Parent": "InputField with prefix",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 137,
+        "PublishOrderIndex": 161,
         "Rules": [
           {
             "Category": "Data",

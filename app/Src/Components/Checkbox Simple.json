@@ -90,7 +90,7 @@
         "Name": "lblStarRequired",
         "Parent": "Checkbox Simple",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 132,
+        "PublishOrderIndex": 156,
         "Rules": [
           {
             "Category": "Data",
@@ -511,7 +511,7 @@
         "Name": "chk_Checkbox",
         "Parent": "Checkbox Simple",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 133,
+        "PublishOrderIndex": 157,
         "Rules": [
           {
             "Category": "Data",
