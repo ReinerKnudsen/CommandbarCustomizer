@@ -7,15 +7,12 @@ Screen3 As screen:
                 ItemKey: "",
                 ItemParentKey: "",
                 ItemIconName: "",
-                ItemIconColor: ColorValue("#000000"),
-                ItemIconOnly: false
+                ItemIconColor: "#000000"
             }
         );
-        UpdateContext({ bol_AddNewParent: true});
-        If( 
-            !IsEmpty( colMenue),
-            UpdateContext({ bol_AddNewParent: false})
-        ); 
+        UpdateContext({ 
+            bol_AddNewParent: true,
+            txtDefaultItemParentKey: ""})
 
     grpItemDisplayName As group:
         Height: =5
@@ -175,7 +172,7 @@ Screen3 As screen:
                         ItemKey: "new",
                         ItemParentKey: "",
                         ItemIconName: "CirclePlus",
-                        ItemIconColor: ColorValue("#000000"),
+                        ItemIconColor: "#000000",
                         ItemIconOnly: false,
                         ItemDivider: false,
                         ItemTopDivider: false,
@@ -192,7 +189,7 @@ Screen3 As screen:
                         ItemKey: "file",
                         ItemParentKey: "new",
                         ItemIconName: "TextDocument",
-                        ItemIconColor: ColorValue("#000000"),
+                        ItemIconColor: "#000000",
                         ItemIconOnly: false,
                         ItemDivider: false,
                         ItemTopDivider: false,
@@ -209,7 +206,7 @@ Screen3 As screen:
                         ItemKey: "email",
                         ItemParentKey: "new",
                         ItemIconName: "Mail",
-                        ItemIconColor: ColorValue("#000000"),
+                        ItemIconColor: "#000000",
                         ItemIconOnly: false,
                         ItemDivider: false,
                         ItemTopDivider: false,
@@ -226,7 +223,7 @@ Screen3 As screen:
                         ItemKey: "exit",
                         ItemParentKey: "",
                         ItemIconName: "RemoveFilter",
-                        ItemIconColor: ColorValue("#000000"),
+                        ItemIconColor: "#000000",
                         ItemIconOnly: false,
                         ItemDivider: false,
                         ItemTopDivider: false,
@@ -273,7 +270,7 @@ Screen3 As screen:
         txtItemParentKey As text:
             BorderColor: =RGBA(153, 153, 153, 1)
             BorderThickness: =1
-            Default: =""
+            Default: =txtDefaultItemParentKey
             DisplayMode: |-
                 =If(
                     !IsBlankOrError( txtItemDisplayName.Text) && !IsBlankOrError( txtItemKey.Text),
@@ -342,6 +339,8 @@ Screen3 As screen:
                     !IsEmpty( colMenue),
                     Distinct( colMenue, ItemParentKey)
                 ) 
+            OnChange: |-
+                =UpdateContext({ txtDefaultItemParentKey: Self.Selected.Result})
             SearchFields: =["Result"]
             SearchItems: =[]
             SelectMultiple: =false
@@ -362,7 +361,10 @@ Screen3 As screen:
             Height: =28
             Icon: =Icon.Add
             OnSelect: |-
-                =UpdateContext({ bol_AddNewParent: true})
+                =UpdateContext({ 
+                    bol_AddNewParent: true,
+                    txtDefaultItemParentKey: ""
+                })
             Visible: =!bol_AddNewParent
             Width: =28
             X: =592
@@ -379,7 +381,7 @@ Screen3 As screen:
             Height: =28
             Icon: =Icon.Search
             OnSelect: |-
-                =UpdateContext({bol_AddNewParent: false})
+                =Reset( txtItemParentKey); UpdateContext({bol_AddNewParent: false})
             Visible: =bol_AddNewParent
             Width: =28
             X: =592
@@ -404,7 +406,7 @@ Screen3 As screen:
             Y: =403
             ZIndex: =15
 
-        txtIItemIconName As text:
+        txtItemIconName As text:
             BorderColor: =RGBA(153, 153, 153, 1)
             BorderThickness: =1
             Default: =""
@@ -521,8 +523,21 @@ Screen3 As screen:
                     {
                         ItemDisplayName: txtItemDisplayName.Text,
                         ItemKey: txtItemKey.Text,
-                        ItemParentKey: txtItemParentKey.Text
+                        ItemParentKey: txtItemParentKey.Text,
+                        ItemIconName: txtItemIconName.Text,
+                        ItemIconColor: "#" & txtItemIconColor.Text,
+                        ItemIconOnly: tgl_ItemIcononly.Value,
+                        ItemOverFlow: tgl_ItemOverFlow.Value,
+                        ItemEnabled: tgl_ItemEnabled.Value,
+                        ItemVisible: tgl_ItemVisibile.Value,
+                        ItemCheck: tgl_ItemCheck.Value,
+                        ItemSplit: tgl_ItemSplit.Value,
+                        ItemFarItem: tgl_ItemFarItem.Value,
+                        ItemHeader: tgl_ItemHeader.Value,
+                        ItemDivider: tgl_ItemDivider.Value,
+                        ItemTopDivider: tgl_ItemTopDivider.Value            
                     }
+                )
             )
         Size: =24
         Text: ="Save"
@@ -588,7 +603,7 @@ Screen3 As screen:
             Y: =710
             ZIndex: =25
 
-        tgl_ItemEnabled_1 As toggleSwitch:
+        tgl_ItemCheck As toggleSwitch:
             Color: =If( Self.Value = true, clr_Enabled, clr_Disabled)
             FalseText: ="ItemChecked"
             Height: =30
@@ -600,7 +615,7 @@ Screen3 As screen:
             Y: =770
             ZIndex: =26
 
-        tgl_ItemEnabled_2 As toggleSwitch:
+        tgl_ItemSplit As toggleSwitch:
             Color: =If( Self.Value = true, clr_Enabled, clr_Disabled)
             FalseText: ="ItemSplit"
             Height: =30
@@ -612,7 +627,7 @@ Screen3 As screen:
             Y: =770
             ZIndex: =27
 
-        tgl_ItemOverFlow_1 As toggleSwitch:
+        tgl_ItemFarItem As toggleSwitch:
             Color: =If( Self.Value = true, clr_Enabled, clr_Disabled)
             FalseText: ="ItemFarItem"
             Height: =30
@@ -624,7 +639,7 @@ Screen3 As screen:
             Y: =830
             ZIndex: =28
 
-        tgl_ItemOverFlow_2 As toggleSwitch:
+        tgl_ItemHeader As toggleSwitch:
             Color: =If( Self.Value = true, clr_Enabled, clr_Disabled)
             FalseText: ="ItemHeader"
             Height: =30
@@ -636,7 +651,7 @@ Screen3 As screen:
             Y: =650
             ZIndex: =29
 
-        tgl_ItemOverFlow_3 As toggleSwitch:
+        tgl_ItemDivider As toggleSwitch:
             Color: =If( Self.Value = true, clr_Enabled, clr_Disabled)
             FalseText: ="ItemDivider"
             Height: =30
@@ -648,7 +663,7 @@ Screen3 As screen:
             Y: =890
             ZIndex: =30
 
-        tgl_ItemOverFlow_4 As toggleSwitch:
+        tgl_ItemTopDivider As toggleSwitch:
             Color: =If( Self.Value = true, clr_Enabled, clr_Disabled)
             FalseText: ="ItemTopDivider"
             Height: =30

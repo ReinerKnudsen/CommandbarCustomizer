@@ -1,37 +1,72 @@
 App As appinfo:
     BackEnabled: =false
     OnStart: |-
-        =ClearCollect(
-            colMenues,
-            {
-                ItemDisplayName: Blank(),
-                ItemKey: Blank(),
-                ItemIconName: Blank(),
-                ItemParentKey: Blank()
-            }
+        =Concurrent(
+            ClearCollect(
+                colMenues,
+                {
+                    ItemDisplayName: Blank(),
+                    ItemKey: Blank(),
+                    ItemIconName: Blank(),
+                    ItemParentKey: Blank()
+                }
+            ),
+            ClearCollect(
+                colMenue,
+                {
+                    ItemDisplayName: "",
+                    ItemKey: "",
+                    ItemParentKey: "",
+                    ItemIconName: "",
+                    ItemIconColor: "#000000",
+                    ItemIconOnly: false,
+                    ItemDivider: false,
+                    ItemTopDivider: false,
+                    ItemHeader: false,
+                    ItemFarItem: false,
+                    ItemOverFlow: false,
+                    ItemSplit: false,
+                    ItemChecked: false,
+                    ItemVisible: true,
+                    ItemEnabled: true
+                }
+            ),
+            ClearCollect(
+                col_SpaltenTabelle,
+                { ColDisplayName: "DisplayName",
+                ColName: "ItemDisplayName",
+                ColWidth: 120
+                },
+                { ColDisplayName: "Key",
+                ColName: "ItemKey",
+                ColWidth: 120
+                },
+                { ColDisplayName: "Parent",
+                ColName: "ItemParentKey",
+                ColWidth: 120
+                },
+                { ColDisplayName: "Icon",
+                ColName: "ItemIconName",
+                ColWidth: 120
+                }
+            ),
+            ClearCollect(
+                col_Tabs,
+                {
+                    Name: "Basic",
+                    Target: "basic"
+                },
+                {
+                    Name: "Icon",
+                    Target: "icon"
+                },
+                {
+                    Name: "Options",
+                    Target: "options"
+                }
+            );
         );
         Clear( colMenues);
-        
-        ClearCollect(
-            colMenue,
-            {
-                ItemDisplayName: "",
-                ItemKey: "",
-                ItemParentKey: "",
-                ItemIconName: "",
-                ItemIconColor: ColorValue("#000000"),
-                ItemIconOnly: false,
-                ItemDivider: false,
-                ItemTopDivider: false,
-                ItemHeader: false,
-                ItemFarItem: false,
-                ItemOverFlow: false,
-                ItemSplit: false,
-                ItemChecked: false,
-                ItemVisible: true,
-                ItemEnabled: true
-            }
-        );
         Set( clr_Disabled, ColorValue( "#e3e7e5"));
         Set( clr_Enabled, ColorValue( "#243068"));
 

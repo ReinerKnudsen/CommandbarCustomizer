@@ -118,7 +118,7 @@
         "Name": "lblRequiredStar",
         "Parent": "InputField",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 152,
+        "PublishOrderIndex": 164,
         "Rules": [
           {
             "Category": "Data",
@@ -491,7 +491,7 @@
         "Name": "lblTitel",
         "Parent": "InputField",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 153,
+        "PublishOrderIndex": 165,
         "Rules": [
           {
             "Category": "Data",
@@ -934,7 +934,7 @@
         "Name": "txtEingabe",
         "Parent": "InputField",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 154,
+        "PublishOrderIndex": 166,
         "Rules": [
           {
             "Category": "Data",
@@ -1293,7 +1293,7 @@
         "Name": "lblErrorMessage",
         "Parent": "InputField",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 155,
+        "PublishOrderIndex": 167,
         "Rules": [
           {
             "Category": "Data",

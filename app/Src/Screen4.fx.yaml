@@ -1,0 +1,192 @@
+Screen4 As screen:
+
+    Container1_2 As groupContainer.horizontalAutoLayoutContainer:
+        Fill: |-
+            =ColorValue("#8ab21d")
+        Height: =51
+        LayoutMode: =LayoutMode.Auto
+        Width: =640
+        ZIndex: =1
+
+        Image1_1 As image:
+            Fill: =Parent.Fill
+            Height: =Parent.Height
+            Image: ='bear (1)'
+            LayoutMinHeight: =
+            LayoutMinWidth: =Self.Height
+            PaddingBottom: =5
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =5
+            Width: =Self.Height + 20
+            ZIndex: =1
+
+        Label1_1 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            FillPortions: =1
+            FontWeight: =FontWeight.Semibold
+            Height: =Parent.Height
+            LayoutMinHeight: =70
+            LayoutMinWidth: =200
+            Size: =18
+            Text: ="Command Bar Designer"
+            Width: =560
+            ZIndex: =2
+
+        Image2_1 As image:
+            Fill: =Parent.Fill
+            Height: =Parent.Height
+            Image: =settings
+            LayoutMinHeight: =320
+            LayoutMinWidth: =320
+            OnSelect: |-
+                =ClearCollect(
+                    colMenue,
+                    {
+                        ItemDisplayName: "Neu",
+                        ItemKey: "new",
+                        ItemParentKey: "",
+                        ItemIconName: "CirclePlus",
+                        ItemIconColor: "#000000",
+                        ItemIconOnly: false,
+                        ItemDivider: false,
+                        ItemTopDivider: false,
+                        ItemHeader: false,
+                        ItemFarItem: false,
+                        ItemOverflow: false,
+                        ItemSplit: false,
+                        ItemChecked: false,
+                        ItemVisible: true,
+                        ItemEnabled: true
+                    },
+                    {
+                        ItemDisplayName: "Datei",
+                        ItemKey: "file",
+                        ItemParentKey: "new",
+                        ItemIconName: "TextDocument",
+                        ItemIconColor: "#000000",
+                        ItemIconOnly: false,
+                        ItemDivider: false,
+                        ItemTopDivider: false,
+                        ItemHeader: false,
+                        ItemFarItem: false,
+                        ItemOverflow: false,
+                        ItemSplit: false,
+                        ItemChecked: false,
+                        ItemVisible: true,
+                        ItemEnabled: true
+                    },
+                    {
+                        ItemDisplayName: "E-Mail",
+                        ItemKey: "email",
+                        ItemParentKey: "new",
+                        ItemIconName: "Mail",
+                        ItemIconColor: "#000000",
+                        ItemIconOnly: false,
+                        ItemDivider: false,
+                        ItemTopDivider: false,
+                        ItemHeader: false,
+                        ItemFarItem: false,
+                        ItemOverflow: false,
+                        ItemSplit: false,
+                        ItemChecked: false,
+                        ItemVisible: true,
+                        ItemEnabled: true
+                    },
+                    {
+                        ItemDisplayName: "Exit",
+                        ItemKey: "exit",
+                        ItemParentKey: "",
+                        ItemIconName: "RemoveFilter",
+                        ItemIconColor: "#000000",
+                        ItemIconOnly: false,
+                        ItemDivider: false,
+                        ItemTopDivider: false,
+                        ItemHeader: false,
+                        ItemFarItem: true,
+                        ItemOverflow: false,
+                        ItemSplit: false,
+                        ItemChecked: false,
+                        ItemVisible: true,
+                        ItemEnabled: true
+                    }
+                )
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            Width: =Self.Height+20
+            ZIndex: =3
+
+    "CommandBar4 As 'Fluent Command Bar (1.0.9)'.pcfdataset":
+        DisplayMode: =DisplayMode.Edit
+        Height: =47
+        Items: =colMenue
+        Width: =640
+        X: =0
+        Y: =105
+        ZIndex: =2
+
+    Label5 As label:
+        FontWeight: =FontWeight.Semibold
+        Height: =44
+        Size: =16
+        Text: ="Your Command bar"
+        Width: =625
+        X: =15
+        Y: =61
+        ZIndex: =3
+
+    "FluentDetailsList1 As 'Fluent Details List (1.0.9)'.pcfdataset":
+        columns_Items: =col_SpaltenTabelle
+        DisplayMode: =DisplayMode.Edit
+        Height: =407
+        Items: =colMenue
+        SelectionAlwaysVisible: =true
+        Width: =640
+        X: =0
+        Y: =269
+        ZIndex: =4
+
+        ItemDisplayName2 As pcfDataField.textualColumn:
+            FieldDisplayName: ="ItemDisplayName"
+            FieldName: ="ItemDisplayName"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =1
+            ZIndex: =4
+
+        ItemKey2 As pcfDataField.textualColumn:
+            FieldDisplayName: ="ItemKey"
+            FieldName: ="ItemKey"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =2
+            ZIndex: =5
+
+        ItemParentKey2 As pcfDataField.textualColumn:
+            FieldDisplayName: ="ItemParentKey"
+            FieldName: ="ItemParentKey"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =3
+            ZIndex: =6
+
+        ItemIconName2 As pcfDataField.textualColumn:
+            FieldDisplayName: ="ItemIconName"
+            FieldName: ="ItemIconName"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =4
+            ZIndex: =7
+
+    Button7 As button:
+        Height: =34
+        Size: =16
+        Text: ="Edit"
+        Width: =118
+        X: =510
+        Y: =224
+        ZIndex: =5
+

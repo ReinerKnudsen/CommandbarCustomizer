@@ -1,7 +1,7 @@
 Screen1 As screen:
 
     Header_1 As Header:
-        LeftButtonImage: ='panda-6266995_640'
+        LeftButtonImage: ='bear (1)'
         OnRightButtonSelect: =Navigate(Screen2, ScreenTransition.Fade)
         Text: ="FLUENT DESIGN APP"
 

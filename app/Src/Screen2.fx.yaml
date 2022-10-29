@@ -1,42 +1,12 @@
 Screen2 As screen:
-    OnVisible: |+
+    OnVisible: |
         =//NewForm(frmCommandbarConfiguration);
         UpdateContext({ 
-            bolShowDialog: false
-        });
-        ClearCollect(
-            col_SpaltenTabelle,
-            { ColDisplayName: "DisplayName",
-              ColName: "ItemDisplayName",
-              ColWidth: 120},
-            { ColDisplayName: "Key",
-              ColName: "ItemKey",
-              ColWidth: 120},
-            { ColDisplayName: "Parent",
-              ColName: "ItemParentKey",
-            ColWidth: 120}
-        );
-        UpdateContext({
+            bolShowDialog: false,
             num_EingabefeldHoehe: 40,
             num_EingabefeldFont: 14,
             clr_ItemIconColor: White
         });
-        ClearCollect(
-            col_Tabs,
-            {
-                Name: "Basic",
-                Target: "basic"
-            },
-            {
-                Name: "Icon",
-                Target: "icon"
-            },
-            {
-                Name: "Options",
-                Target: "options"
-            }
-        )
-        
 
     "Elevation1 As 'Fluent Elevation (1.0.9)'":
         Depth: ='''PowerCAT.Elevation.Depth'''.Depth16
@@ -49,7 +19,7 @@ Screen2 As screen:
         ZIndex: =1
 
     Header_2 As Header:
-        LeftButtonImage: ='panda-6266995_640'
+        LeftButtonImage: ='bear (1)'
         OnRightButtonSelect: =Navigate(Screen1, ScreenTransition.Fade)
         Text: ="COMMAND BAR CONFIGURATION"
         ZIndex: =2

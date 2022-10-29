@@ -55,6 +55,22 @@
       "ComponentName": "CustomControl",
       "Identifier": "cat_PowerCAT.Elevation",
       "IdentifierType": 0
+    },
+    {
+      "Capabilities": {
+        "PCFExternalServiceUsageAllowed": false
+      },
+      "ComponentName": "CustomControl",
+      "Identifier": "cat_PowerCAT.CommandBar",
+      "IdentifierType": 0
+    },
+    {
+      "Capabilities": {
+        "PCFExternalServiceUsageAllowed": false
+      },
+      "ComponentName": "CustomControl",
+      "Identifier": "cat_PowerCAT.FluentDetailsList",
+      "IdentifierType": 0
     }
   ],
   "dataSources": {},
