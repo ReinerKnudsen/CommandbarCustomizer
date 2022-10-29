@@ -90,7 +90,7 @@
         "Name": "lblStarRequired",
         "Parent": "Checkbox Simple",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 128,
+        "PublishOrderIndex": 132,
         "Rules": [
           {
             "Category": "Data",
@@ -511,7 +511,7 @@
         "Name": "chk_Checkbox",
         "Parent": "Checkbox Simple",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 129,
+        "PublishOrderIndex": 133,
         "Rules": [
           {
             "Category": "Data",
@@ -836,7 +836,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638026448657086697",
+    "LastModifiedTimestamp": "638026583929104873",
     "Name": "Checkbox Simple",
     "Rules": [
       {
@@ -992,7 +992,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638026448657086697",
+  "LastModifiedTimestamp": "638026583929104873",
   "Name": "6cfc444ed2324324bc5571c0eeb61699",
   "OverridableProperties": {},
   "Version": "638024777454051592"

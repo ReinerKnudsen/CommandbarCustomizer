@@ -10,12 +10,12 @@ Screen3 As screen:
                 ItemIconColor: ColorValue("#000000"),
                 ItemIconOnly: false
             }
-        )
-
-    "'Header Bar' As Header":
-        Height: =56
-        LeftButtonImage: ='bear (1)'
-        Text: ="COMMAND BAR DESIGNER"
+        );
+        UpdateContext({ bol_AddNewParent: true});
+        If( 
+            !IsEmpty( colMenue),
+            UpdateContext({ bol_AddNewParent: false})
+        ); 
 
     grpItemDisplayName As group:
         Height: =5
@@ -114,9 +114,17 @@ Screen3 As screen:
             ZIndex: =7
 
     ComboBox1 As combobox:
+        DisplayFields: =["Result"]
         Height: =46
-        Items: =ComboBoxSample
-        SearchItems: =Search(ComboBoxSample,ComboBox1.SearchText,"Value1")
+        IsSearchable: =false
+        Items: |-
+            =If(
+                !IsEmpty( colMenue),
+                Distinct( colMenue, ItemParentKey)
+            ) 
+        SearchFields: =["Result"]
+        SearchItems: =[]
+        SelectMultiple: =false
         Size: =16
         Width: =600
         X: =20
@@ -170,4 +178,129 @@ Screen3 As screen:
             Width: =640
             Y: =373
             ZIndex: =10
+
+    Container1 As groupContainer.horizontalAutoLayoutContainer:
+        Fill: |-
+            =ColorValue("#8ab21d")
+        Height: =51
+        LayoutMode: =LayoutMode.Auto
+        Width: =640
+        ZIndex: =12
+
+        Image1 As image:
+            Fill: =Parent.Fill
+            Height: =Parent.Height
+            Image: ='bear (1)'
+            LayoutMinHeight: =
+            LayoutMinWidth: =Self.Height
+            PaddingBottom: =5
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =5
+            Width: =Self.Height + 20
+            ZIndex: =1
+
+        Label1 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            FillPortions: =1
+            FontWeight: =FontWeight.Semibold
+            Height: =Parent.Height
+            LayoutMinHeight: =70
+            LayoutMinWidth: =200
+            Size: =18
+            Text: ="Command Bar Designer"
+            Width: =560
+            ZIndex: =2
+
+        Image2 As image:
+            Fill: =Parent.Fill
+            Height: =Parent.Height
+            Image: =settings
+            OnSelect: |-
+                =ClearCollect(
+                    colMenue,
+                    {
+                        ItemDisplayName: "Neu",
+                        ItemKey: "new",
+                        ItemParentKey: "",
+                        ItemIconName: "CirclePlus",
+                        ItemIconColor: ColorValue("#000000"),
+                        ItemIconOnly: false,
+                        ItemDivider: false,
+                        ItemTopDivider: false,
+                        ItemHeader: false,
+                        ItemFarItem: false,
+                        ItemOverflow: false,
+                        ItemSplit: false,
+                        ItemChecked: false,
+                        ItemVisible: true,
+                        ItemEnabled: true
+                    },
+                    {
+                        ItemDisplayName: "Datei",
+                        ItemKey: "file",
+                        ItemParentKey: "new",
+                        ItemIconName: "TextDocument",
+                        ItemIconColor: ColorValue("#000000"),
+                        ItemIconOnly: false,
+                        ItemDivider: false,
+                        ItemTopDivider: false,
+                        ItemHeader: false,
+                        ItemFarItem: false,
+                        ItemOverflow: false,
+                        ItemSplit: false,
+                        ItemChecked: false,
+                        ItemVisible: true,
+                        ItemEnabled: true
+                    },
+                    {
+                        ItemDisplayName: "E-Mail",
+                        ItemKey: "email",
+                        ItemParentKey: "new",
+                        ItemIconName: "Mail",
+                        ItemIconColor: ColorValue("#000000"),
+                        ItemIconOnly: false,
+                        ItemDivider: false,
+                        ItemTopDivider: false,
+                        ItemHeader: false,
+                        ItemFarItem: false,
+                        ItemOverflow: false,
+                        ItemSplit: false,
+                        ItemChecked: false,
+                        ItemVisible: true,
+                        ItemEnabled: true
+                    },
+                    {
+                        ItemDisplayName: "Exit",
+                        ItemKey: "exit",
+                        ItemParentKey: "",
+                        ItemIconName: "RemoveFilter",
+                        ItemIconColor: ColorValue("#000000"),
+                        ItemIconOnly: false,
+                        ItemDivider: false,
+                        ItemTopDivider: false,
+                        ItemHeader: false,
+                        ItemFarItem: true,
+                        ItemOverflow: false,
+                        ItemSplit: false,
+                        ItemChecked: false,
+                        ItemVisible: true,
+                        ItemEnabled: true
+                    }
+                )
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            Width: =Self.Height+20
+            ZIndex: =3
+
+    Icon3 As icon.Add:
+        Height: =25
+        Icon: =Icon.Add
+        Width: =31
+        X: =589
+        Y: =296
+        ZIndex: =13
 

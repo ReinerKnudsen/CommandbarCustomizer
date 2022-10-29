@@ -10,5 +10,26 @@ App As appinfo:
                 ItemParentKey: Blank()
             }
         );
-        Clear( colMenues)
+        Clear( colMenues);
+        
+        ClearCollect(
+            colMenue,
+            {
+                ItemDisplayName: "",
+                ItemKey: "",
+                ItemParentKey: "",
+                ItemIconName: "",
+                ItemIconColor: ColorValue("#000000"),
+                ItemIconOnly: false,
+                ItemDivider: false,
+                ItemTopDivider: false,
+                ItemHeader: false,
+                ItemFarItem: false,
+                ItemOverFlow: false,
+                ItemSplit: false,
+                ItemChecked: false,
+                ItemVisible: true,
+                ItemEnabled: true
+            }
+        )
 
